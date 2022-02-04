@@ -1,0 +1,115 @@
+.ind-item {
+  margin: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.ind-img {
+  width: 30%;
+}
+
+.ind-img img {
+  width: 100%;
+}
+
+.ind-det {
+  width: 60%;
+  height: 62vh;
+  text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.ind-det h1, h3, h2, p {
+  overflow: hidden;
+  width: 90%;
+}
+
+.typo h1, h3, h2, p {
+  margin-bottom: 10px;
+}
+
+.btnbtn {
+  text-align: center;
+}
+
+.ind-det button {
+  padding: 6px 20px;
+  background-color: rgba(0, 0, 255, 0.674);
+  color: white;
+  margin: 20px 50px;
+  border-radius: 8px;
+}
+
+.ind-det button:hover {
+  background-color: navy;
+}
+
+.alertt {
+  padding: 10px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.closebtnn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.closebtnn:hover {
+  color: black;
+}
+
+@media screen and (max-width: 768px) {
+  .ind-item {
+    margin: 50px 10px;
+    display: block;
+  }
+  .ind-img {
+    width: 80%;
+    margin: 0px auto;
+  }
+  .ind-img img {
+    width: 100%;
+    height: 35vh;
+  }
+  .ind-det {
+    width: 80%;
+    margin: 0px auto;
+    height: auto;
+    text-align: left;
+    display: block;
+  }
+  .ind-det h1, h3, h2, p {
+    overflow: hidden;
+    width: 100%;
+  }
+  .typo h1, h3, h2, p {
+    margin-bottom: 5px;
+  }
+  .btnbtn {
+    text-align: right;
+  }
+  .ind-det button {
+    margin: 20px 0px;
+  }
+}
+/*# sourceMappingURL=ProductDetails.css.map */

@@ -1,0 +1,28 @@
+.purchases-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.purchase-each {
+  padding: 1rem;
+  border: 1px solid blue;
+}
+
+.pur-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem;
+}
+/*# sourceMappingURL=Purchases.css.map */

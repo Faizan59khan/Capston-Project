@@ -1,0 +1,123 @@
+.cart {
+  border: 1px solid #b3b3b3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.cart button {
+  background: #f98169;
+  position: static;
+  width: 200px;
+  font-size: 1.3rem;
+  color: #fff;
+  border: none;
+  outline: none;
+  height: 40px;
+  margin: 30px auto;
+}
+
+.cart-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 50%;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid #b3b3b3;
+  -webkit-box-shadow: 1px 2px #b3b3b3;
+          box-shadow: 1px 2px #b3b3b3;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cart-item img {
+  width: 150px;
+  height: 150px;
+}
+
+.cart-item .cart-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.cart-item p {
+  font-size: 2rem;
+}
+
+.cart-item i {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+#cart-total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  text-align: center;
+  width: 50%;
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid #b3b3b3;
+  -webkit-box-shadow: 1px 2px #b3b3b3;
+          box-shadow: 1px 2px #b3b3b3;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#cart-total label {
+  width: 30%;
+  margin-top: 5rem;
+  position: static;
+}
+
+#cart-total label span {
+  display: block;
+  font-size: 1.8rem;
+  margin: 4px;
+}
+
+#cart-total label input {
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 375px) {
+  .cart-item {
+    width: 100%;
+  }
+  .cart-item img {
+    width: 100px;
+    height: 100px;
+  }
+  .cart-item p {
+    font-size: 1.7rem;
+  }
+  .cart-item i {
+    font-size: 1.7rem;
+  }
+  #cart-total {
+    width: 90% !important;
+  }
+  #cart-total label {
+    width: 100% !important;
+  }
+}
+/*# sourceMappingURL=Cart.css.map */

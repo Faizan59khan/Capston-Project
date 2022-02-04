@@ -1,0 +1,18 @@
+.purchases-item{
+    display: flex;
+    width: 50%;
+    margin: 0 auto;
+    border: 1px solid black;
+    
+}
+
+.purchase-each{
+    padding: 1rem;
+    border: 1px solid blue;
+}
+.pur-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1rem;
+}

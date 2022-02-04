@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+*, body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.login {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 6rem auto;
+  padding: 1.4rem;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  width: 95vw;
+  text-align: center;
+}
+
+.login h1 {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.login p {
+  width: 26vw;
+  margin: 10px auto;
+  text-align: center;
+  color: #666666;
+}
+
+.login input {
+  display: block;
+  width: 25vw;
+  height: 40px;
+  margin: 15px auto;
+  border-radius: 10px;
+  outline: none;
+  border: 1px solid #666666;
+  color: #000;
+}
+
+.login input[placeholder] {
+  font-size: 20px;
+  padding: 5px;
+  color: #000;
+}
+
+.login button {
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  width: 12vw;
+  height: 45px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  margin: 10px;
+  background: #000;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+}
+
+/*===================== Media Queries============================= */
+@media only screen and (max-width: 1100px) {
+  p {
+    width: 50vw !important;
+  }
+  input {
+    width: 50vw !important;
+  }
+  button {
+    width: 50vw !important;
+  }
+}
+/*# sourceMappingURL=Login.css.map */

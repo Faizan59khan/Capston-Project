@@ -1,0 +1,51 @@
+.navbar {
+  background: #f98169 !important;
+  margin-bottom: 0 !important;
+  border-radius: 0;
+}
+
+.navbar .container-fluid {
+  margin-left: 6rem;
+}
+
+.navbar .navbar-brand {
+  font-size: 2rem;
+}
+
+.navbar .fa-burger {
+  margin: 4px;
+  font-size: 28px;
+}
+
+.navbar a {
+  color: #fff !important;
+  font-weight: bold;
+  margin: .7rem;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.6rem;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.navbar li:hover {
+  background: #f3a697;
+  border-radius: 10px;
+}
+
+.cart-link {
+  position: relative;
+}
+
+.cart-link .cart-count {
+  position: absolute;
+  top: 10px;
+  color: black;
+}
+
+@media only screen and (max-width: 375px) {
+  .container-fluid {
+    margin-left: 0 !important;
+  }
+}
+/*# sourceMappingURL=Navbar.css.map */
