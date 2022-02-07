@@ -10,6 +10,9 @@
 
 .navbar .navbar-brand {
   font-size: 2rem;
+  padding: .5rem;
+  font-weight: bolder;
+  color: #fff !important;
 }
 
 .navbar .fa-burger {
@@ -17,18 +20,27 @@
   font-size: 28px;
 }
 
-.navbar a {
+.navbar li {
+  margin: .5rem;
+}
+
+.navbar ul li a {
   color: #fff !important;
   font-weight: bold;
-  margin: .7rem;
+  margin: .5rem;
   text-align: center;
   text-decoration: none;
   font-size: 1.6rem;
-  padding: 3px;
+  padding: .5rem;
   cursor: pointer;
 }
 
-.navbar li:hover {
+.navbar ul li a:hover {
+  background: #f3a697;
+  border-radius: 10px;
+}
+
+.navbar .active {
   background: #f3a697;
   border-radius: 10px;
 }

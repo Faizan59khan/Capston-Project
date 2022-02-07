@@ -23,8 +23,13 @@ const Cart = () => {
         cart && cart.product.map((val) => {
             result.push(val.item);
         })
+        if(cart.loc!==""){
         await addItems(result);
         await addDocument(cart);
+        }
+        else{
+            alert("Enter Your Location")
+        }
 
 
         dispatch({ type: 'ADD_TO_CART', payload: null })
@@ -34,25 +39,46 @@ const Cart = () => {
     const removeItem = (item) => {
 
         let result = [];
+        let total=0;
 
         cart.product.forEach((val) => {
-            if (val.flavour !== item.flavour) {
-                result.push(val);
-            }
-            else {
-                cart.total = cart.total - val.price;         //only remove slected item price from total
-                //console.log(cart.total);
-                if (val.quantity > 1) {                 //if cart contains more than one item
-                    --val.quantity;
-                    result.push(val);
-                }
-            }
+           if(val !== item){
+             result.push(val);
+           }
+           else{
+              for(let i=0;i<item.quantity;i++){                       //remove item prices 
+                  cart.total-=item.price;
+              }
+           }
         })
+
 
 
         dispatch({ type: 'REMOVE_ITEM', payload: { product: result, total: cart.total } })
 
 
+    }
+
+    const decreaseQuantity=(item)=>{
+        cart.product.forEach((val)=>{
+            if(val===item){
+                if(val.quantity!== 1){
+                  val.quantity--;
+                  cart.total-=item.price;
+                }
+            }
+        })
+        dispatch({ type: 'ADD_TO_CART', payload: {...cart }})
+ }
+
+    const increaseQuantity=(item)=>{
+           cart.product.forEach((val)=>{
+               if(val===item){
+                   val.quantity++;
+                   cart.total+=item.price;
+               }
+           })
+           dispatch({ type: 'ADD_TO_CART', payload: {...cart }})
     }
 
 
@@ -67,27 +93,34 @@ const Cart = () => {
                             <div className='cart-item' key={index}>
                                 <img src={item.img} />
                                 <div className='cart-details'>
-                                    <h1>{item.item}</h1>
+                                    <h2>{item.item}</h2>
                                     <span>{item.flavour}</span>
                                 </div>
-                                <p>Quantity: {item.quantity}</p>
-                                <div onClick={() => removeItem(item)}><i class="fa-solid fa-xmark"></i></div>
+                                <div class="qty">
+                                        <span class="minus bg-dark" onClick={()=>decreaseQuantity(item)}>-</span>
+                                        <input type="number" class="count" name="qty" value={item.quantity}/>
+                                        <span class="plus bg-dark" onClick={()=>increaseQuantity(item)}>+</span>
+                                </div>
+                                <div id='del-item' onClick={() => removeItem(item)}><i className="fa-solid fa-xmark"></i></div>
                             </div>
                         )
                     })
                 }
-                {cart && <div id="cart-total">
+                {cart && cart.product.length!==0 && <div id="cart-total">
                     <h2>Total: {cart.total}</h2>
-                    {cart && <label>
-                        <span>Location</span>
+                    {cart && <div className='location'>
+                        <h3>Location</h3>
+                        <form>
                         <input type="text" placeholder="Enter Your Address" required onChange={(e) => setLoc(e.target.value)} />
-                    </label>
+                        </form>
+                    </div>
 
                     }
                 </div>
                 }
-                {!user && cart && <button onClick={checkOut} style={{ background: "gray" }} disabled={true}>Checkout</button>}
-                {user && cart && <button onClick={checkOut} disabled={!disable}>Checkout</button>}
+                {!user && cart && cart.product.length!==0 && 
+                <button onClick={checkOut} style={{ background: "gray" }} disabled={true}>Checkout</button>}
+                {user && cart && cart.product.length!==0 && <button onClick={checkOut} disabled={!disable}>Checkout</button>}
             </div>
 
         </div>

@@ -1,5 +1,5 @@
-import React,{useState} from 'react'
-import { Link } from 'react-router-dom'
+import React,{useEffect, useState} from 'react'
+import {  NavLink } from 'react-router-dom'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useLogout } from '../hooks/useLogout'
 import { useNavigate } from 'react-router-dom'
@@ -13,10 +13,12 @@ import Search from './Search'
 
 const Navbar = () => {
 
-
+    const [active,setActive]=useState(true);
     const {user,cart}=useAuthContext();
     const {logout,error,isPending}=useLogout();
     const navigate=useNavigate();
+
+   
 
    const logoutUser=()=>{
      logout();
@@ -36,21 +38,21 @@ const Navbar = () => {
             <span className="navbar-toggler-icon" />
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0" id='nav'>
               <li className="nav-item">
-                  <Link  to="/" className="nav-link active" >Home</Link>
+                  <NavLink  to="/" className="nav-link" activeClassName="active">Home</NavLink>
               </li>
               <li className="nav-item">
-                <Link to="/cart" className="nav-link cart-link" >Cart</Link>
+                <NavLink to="/cart" className="nav-link" activeClassName="active">Cart</NavLink>
               </li>
               {!user &&<li className="nav-item">
-                <Link to="/login" className="nav-link" >Login</Link>
+                <NavLink to="/login" className="nav-link" activeClassName="active">Login</NavLink>
               </li>}
               {!user &&<li className="nav-item">
-                <Link to="/Signup" className="nav-link" >Signup</Link>
+                <NavLink to="/Signup" className="nav-link" activeClassName="active">Signup</NavLink>
               </li>}
               <li className="nav-item">
-                <Link to="/track" className="nav-link" >My Orders</Link>
+                <NavLink to="/track" className="nav-link" activeClassName="active">My Orders</NavLink>
               </li>
               {user && <li className="nav-item">
                   <a  onClick={logoutUser} className="nav-link">Log out</a>

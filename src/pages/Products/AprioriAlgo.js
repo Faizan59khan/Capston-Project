@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import {useCollection} from '../../hooks/useCollection';
 import {useAuthContext} from '../../hooks/useAuthContext';
 import { NavLink } from 'react-router-dom';
+import './Products.scss'
 
 
 const AprioriAlgo = () => {
@@ -15,7 +16,7 @@ const AprioriAlgo = () => {
   useEffect(() => {
      
     
-    fetch("/api").then((res)=>{
+    fetch("/api").then((res)=>{           //fetching data from node server
       console.log(res)
       return(
         res.json().then((data)=>{
@@ -97,11 +98,10 @@ const AprioriAlgo = () => {
                 <img className="card__image" src={item.imgUrl} alt="" />
                 <div className="card__content">
                   <div className="card__header">
-                    <h4 className="card__title">{item.name}</h4>
+                    <h2 className="card__title">{item.name}</h2>
                     <span className="card__price">{item.price}</span>
-                    <button onClick={()=>addtoCart(item)}>ADD</button>
                   </div>
-                  <p className="card__text">Lorem ipsum dolor sit amet, consetetur sadipscing elitr,</p>
+                  <p className="card__text">{item.details}</p>
                 </div>
               </NavLink>
                )

@@ -1,3 +1,9 @@
+// nav{
+//   position: fixed !important;
+//   top: 0;
+//   width: 100%;
+//   z-index: 60;
+// }
 .navbar{
   background: #f98169 !important;
   margin-bottom: 0 !important;
@@ -7,25 +13,37 @@
   }
   .navbar-brand{
     font-size: 2rem;
+    padding: .5rem;
+    font-weight: bolder;
+    color: #fff !important;
   }
   .fa-burger{
     margin: 4px;
     font-size: 28px;
   }
-  a{
+  li{
+    margin: .5rem;
+  }
+  ul li a{
     color: #fff !important;
     font-weight: bold;
-    margin: .7rem;
+    margin: .5rem;
     text-align: center;
     text-decoration: none;
     font-size: 1.6rem;
-    padding: 3px;
+    padding: .5rem;
     cursor: pointer;
   }
-  li:hover{
+  ul li a:hover{
     background: #f3a697;
     border-radius: 10px;
   }
+  .active{
+    background: #f3a697;
+    border-radius: 10px;
+  }
+  
+ 
 }
 .cart-link{
   position: relative;
