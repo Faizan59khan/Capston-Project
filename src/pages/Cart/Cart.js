@@ -84,7 +84,7 @@ const Cart = () => {
            cart.product.forEach((val)=>{
                if(val===item){
                    val.quantity++;
-                   cart.total+=item.price;
+                  cart.total+=item.price;
                }
            })
            dispatch({ type: 'ADD_TO_CART', payload: {...cart }})

@@ -19,13 +19,14 @@ const ProductDetails = () => {
   const { dispatch, cart} = useAuthContext();
 
    
+   
 
 
     if (error) {
         return <div className="error">{error}</div>
       }
       if (!document) {
-        return <Loading/>
+        return <Loading />
       }
 
     const addtoCart = (item)=>{

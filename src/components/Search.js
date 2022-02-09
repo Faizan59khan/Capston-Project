@@ -3,6 +3,7 @@ import './Search.scss';
 import { useAuthContext } from '../hooks/useAuthContext';
 
 
+
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition
 const mic = new SpeechRecognition()
@@ -12,7 +13,8 @@ mic.interimResults = true
 mic.lang = 'en-US'
 
 function Search() {
-  const [alert, setAlert] = useState(false);
+ 
+  const [alert,setAlert]=useState(false);
   const [isListening, setIsListening] = useState(false)
   const [value,setValue]=useState("");
   const [note, setNote] = useState(null)
@@ -95,13 +97,10 @@ function Search() {
 
   return (
     <>
-      <div className="alertt" style={{ display: alert ? 'block' : 'none' }}>
-    <button type="button" class="close" data-dismiss="alert" onClick={()=>setAlert(false)} aria-hidden="true">×</button>
-      <div className='alert-message'>
-      <i class="fa-solid fa-check"></i>
-      <strong> <p>There is no such item</p> </strong> 
+      <div className="alert alert-primary" style={{ display: alert ? 'block' : 'none' }} role="alert">
+         <p>No items Found</p>
       </div>
-    </div>
+
 
     <div className='d-flex search-input'>
      <input id='sea-inp' type="form-control me-2" placeholder={value?value:"Search"} onChange={(e)=>setValue(e.target.value)} />    
