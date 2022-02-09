@@ -1,5 +1,6 @@
 .site-footer {
   margin-top: 6rem;
+  background: #f98169;
 }
 
 .site-footer .container {
@@ -14,6 +15,7 @@
 
 .site-footer .container p {
   color: #fff;
+  background: #f98169;
 }
 
 .site-footer .container h4 {

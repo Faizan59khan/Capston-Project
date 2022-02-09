@@ -1,6 +1,6 @@
 .loading {
-  width: 50%;
-  margin: 0 auto;
+  width: 80%;
+  margin: 12rem auto;
   display: inline-block;
   padding: 1rem;
 }
@@ -13,7 +13,6 @@
 .loading h3 {
   font-size: 4rem;
   padding: .7rem;
-  text-align: left;
   display: inline-block;
 }
 /*# sourceMappingURL=Loading.css.map */

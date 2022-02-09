@@ -75,8 +75,8 @@ function App() {
             {user && <Route path="/track" element={<Track />} />}
             <Route path="/productDetails/:id" element={<ProductDetails />} />
             {user && <Route path="/apriori" element={<Apriori />} />}
-            {!user && <Route path="/login" element={<Login />} />}
-            {!user && <Route path="/Signup" element={<Signup />} />}
+            <Route path="/login" element={<Login />} />
+            <Route path="/Signup" element={<Signup />} />
           </Routes>
 
         </BrowserRouter>}

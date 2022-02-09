@@ -7,24 +7,24 @@ const Contact = () => {
             <h1 className='contact-us'>Contact Us</h1>
             <div className='Icons'>
                 
-                    <div className='icon2'>
-                <span className="fa fa-2x fa-map-marker"></span>
+                    <div className='icon'>
+                <span className="fa fa-lg fa-map-marker"></span>
                 <p><b>Address:</b><br/>Sudofy, Karachi, Sindh, Pakistan</p>
                 </div>
 
                 
                 
                 
-                <div className='icon4'>
-                    <span className="fa fa-2x fa-phone"></span>
+                <div className='icon'>
+                    <span className="fa fa-lg fa-phone"></span>
                     <p><b>Phone:</b><br/>+923008090100</p>
                     </div>
 
                 
                 
                 
-                <div className='icon3'>
-                    <span className="fa fa-2x fa-paper-plane"></span>
+                <div className='icon'>
+                    <span className="fa fa-lg fa-paper-plane"></span>
                     <p><b>Email:</b><br/> sudofyproject@gmail.com</p>
                     </div>
                     
@@ -32,8 +32,8 @@ const Contact = () => {
                
                 
                 
-                <div className='icon3'>
-                    <span className="fa fa-2x fa-globe"></span>
+                <div className='icon'>
+                    <span className="fa fa-lg fa-globe contact-icon"></span>
                     <p><b>Website:</b><br/> www.sample.com</p>       
                     </div>
                 
