@@ -1,13 +1,101 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap");
+:root {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  --clr-head: #0c3653;
+  --clr-accent: #f98169;
+  --clr-body: #aeb2b4;
+  --fs-h2: 3rem;
+  --fs-h4: 1.8rem;
+  --ff-body: "Raleway", sans-serif;
+  font-family: "Raleway", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+h2,
+h4, h1 {
+  color: var(--clr-head);
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+/* ALERT DESIGN */
+.alertt {
+  position: fixed;
+  width: 100%;
+  font-size: 15px;
+  z-index: 30;
+  top: 0;
+  background: #33cc33;
+  padding: 1rem;
+}
+
+.alertt .alert-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.alertt .alert-message i {
+  font-size: 22px;
+  padding: 2px;
+  margin-right: 5px;
+}
+
+.alertt .alert-message strong p {
+  display: inline-block;
+  font-weight: lighter;
+  color: #000;
+}
+
+.close {
+  float: right;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: .5;
+}
+
+.main-track {
+  font-family: "Raleway", sans-serif;
+}
+
 h2 {
   margin: 1rem;
   text-align: center;
 }
 
 .track-container {
-  margin: 10px;
+  background: #fff;
   border: 1px solid #aaa7a7;
   -webkit-box-shadow: 1px 2px #948f8f;
           box-shadow: 1px 2px #948f8f;
+  border-radius: 10px;
+  margin: 10px;
   padding: 10px;
 }
 

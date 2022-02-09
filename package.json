@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "@wellyshen/use-web-animations": "^0.9.1",
     "chart.js": "^2.8.0",
     "clsx": "^1.0.4",
     "firebase": "8.5",

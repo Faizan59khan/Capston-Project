@@ -103,7 +103,7 @@ const Signup = () => {
 
                             <div className="form-group form-button">
                                 {isPending && <input type="submit" name="signup" id="signup" className="form-submit" value="Loading..." />}
-                                {!isPending && <input type="submit" name="signup" id="signup" className="form-submit" value="Register" />}
+                                {!isPending && <input style={{background:"#f98169"}} type="submit" name="signup" id="signup" className="form-submit" value="Register" />}
                                 {error && <p>{error}</p>}
 
                             </div>

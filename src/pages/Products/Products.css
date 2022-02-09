@@ -8,6 +8,7 @@
   --fs-h2: 3rem;
   --fs-h4: 1.8rem;
   --ff-body: "Raleway", sans-serif;
+  font-family: "Raleway", sans-serif;
 }
 
 *,
@@ -33,6 +34,52 @@ h2 {
   font-size: var(--fs-h2);
 }
 
+/* ALERT DESIGN */
+.alertt {
+  position: fixed;
+  width: 100%;
+  font-size: 15px;
+  z-index: 30;
+  top: 0;
+  background: #33cc33;
+  padding: 1rem;
+}
+
+.alertt .alert-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.alertt .alert-message i {
+  font-size: 22px;
+  padding: 2px;
+  margin-right: 5px;
+}
+
+.alertt .alert-message strong p {
+  display: inline-block;
+  font-weight: lighter;
+  color: #000;
+}
+
+.close {
+  float: right;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: .5;
+}
+
 .products-container {
   text-align: center;
 }
@@ -41,6 +88,11 @@ h2 {
   width: 70%;
   margin: 10px auto;
   padding: 1rem;
+}
+
+.products-container h1 {
+  padding: 1rem;
+  margin: 1rem;
 }
 
 .card {
@@ -101,10 +153,12 @@ h2 {
   width: 70%;
   height: auto;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  border-radius: 15px;
+  background: #fff;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   border: 1px solid #e7e4e4;
@@ -133,13 +187,153 @@ h2 {
   width: 70%;
 }
 
-@media only screen and (max-width: 375px) {
+/* Individual Product Page */
+.product-details {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+  background: #fff;
+  width: 90%;
+  border-radius: 10px;
+  margin: 3rem;
+}
+
+.product-details img {
+  width: 60%;
+  height: 600px;
+  border-radius: 20px;
+  margin: 2rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.product-details p {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.product-details .product-info {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: left;
+}
+
+.product-details .product-info .cart-btn {
+  background: #f98169;
+  border-radius: 10px;
+  width: 200px;
+  font-size: 1.6rem;
+  color: #fff;
+  border: none;
+  outline: none;
+  height: 40px;
+  margin: 20px auto;
+}
+
+.product-details .product-info .cart-btn:hover {
+  background: #f3a697;
+}
+
+.product-details .product-price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90%;
+  padding: .5rem;
+  margin: 1rem;
+  border-bottom: 2px solid #f98169;
+}
+
+.dis-btn {
+  background: gray;
+  border-radius: 10px;
+  width: 200px;
+  font-size: 1.6rem;
+  color: #fff;
+  border: none;
+  outline: none;
+  height: 40px;
+  margin: 20px auto;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1200px) {
+  .product-details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: .5rem;
+    background: #fff;
+    width: 95%;
+    border-radius: 10px;
+    margin: 1rem;
+  }
+  .product-details h2 {
+    font-size: 2.5rem;
+  }
+  .product-details img {
+    width: 50%;
+    height: 500px;
+    border-radius: 20px;
+    margin: 2rem;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .product-details p {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .product-details .product-info {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 775px) {
+  .products-container {
+    margin: 0;
+    padding: 0;
+  }
   .products-container #products-para {
     width: 100% !important;
   }
   h1 {
-    font-size: 3rem;
+    font-size: 2.8rem !important;
     width: 100%;
+  }
+  .product-details {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 1rem;
+  }
+  .product-details img {
+    width: 90%;
+    margin: 1rem;
+    height: auto;
+  }
+  .product-details .product-price {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 300px;
+    margin: 0 auto;
+  }
+  .product-details h2 {
+    font-size: 2.2rem;
+  }
+  .product-details p {
+    font-size: 1.6rem;
   }
 }
 /*# sourceMappingURL=Products.css.map */
