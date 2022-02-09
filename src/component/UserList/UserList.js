@@ -19,6 +19,7 @@ const {documents}=useCollection('users')
   const [users] = useState(mockData);
 if(documents){
   console.log(documents);
+  console.log(documents.sort())
 }
   return (
     <div className={classes.root}>

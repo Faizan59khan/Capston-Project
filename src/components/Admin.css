@@ -1,6 +1,15 @@
 .admin-options{
-margin: 10px auto;
+ width: 100%;
+margin: 0px auto;
+display:flex;
+justify-content: flex-start;
+flex-wrap: wrap;
 
+}
+.admin-options .item{
+    margin-left: 40px;
+    margin-bottom: 50px;
+    
 }
 .admin-options button{
     margin-right: 10px;
@@ -14,15 +23,7 @@ padding: 5px 35px;
 .admin-add-item{
 padding: 5px 25px;
 }
-.item{
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    width: 75%;
-    margin: 30px auto;
-    margin-bottom: 50px;
-    
-}
+
 .item-img{
 width: 150px;
 height: 110px;
@@ -31,151 +32,102 @@ height: 110px;
     width: 150px;
 height: 110px;
 }
+.det-opt{
+    display: flex;
+    justify-content: space-around;
+}
+
 .item-details{
-    width: 50%;
+    width: 100%;
     text-align:left;
-    margin-left: 20px;
     
 }
 .item-details p{
-    margin:0px 0px;
+    margin:5px 0px;
     width: 100%;
     overflow: hidden;
-    
-    
+     
 }
-.desc{
-    
-    max-height: 52px;
-    padding-bottom: 3px;
-   
-}
+
 .item-details h4{
     overflow: hidden;
     margin:0px;
     border-bottom: 1px solid gray;
 }
 
-.item-options{
-    margin-left: 75px;
-}
+
 .item-options button{
+    margin-left: 10px;
     cursor: pointer;
     display: block;
     
 }
 .edit-item{
+    border: none;
     background-color: transparent;
-
-padding: 5px 30px;
+padding: 5px 10px;
 }
 .delete-item{
+    border: none;
     background-color: transparent;
-margin-top: 10px;
-padding: 5px 22px;
+padding: 5px 10px;
 }
-.delete-item:hover,.edit-item:hover{
-    background-color: lightgray;
-}
+
 form{
     width: 50%;
     margin: 0px auto;
 }
-@media screen and (min-width:481px) and (max-width:768px) {
-   
-        .item{
-            justify-content: space-between;
-            width: 95%;
-            margin: 30px auto;
-            margin-bottom: 20px;
-        }
-        .item-img{
-        background-color: black;
-        width: 150px;
-        height: 110px;
-        }
-        .item-details{
-    
-            width: 65%;
-            text-align:left;
-            margin-left: 20px;
-            
-        }
-        .item-details p{
-            font-size: small;
 
-            width: 100%;
-     
-            
-            
-        }
-     
-        .desc{
-            border-bottom: 1px solid lightgray;
-            max-height: 50px;
-        }
-     
-    
-        
-        .item-options{
-            margin-left: 15px;
-        }
+@media screen and  (max-width:500px){
+    .admin-options{
 
-        .edit-item{
-  
-        
-        padding: 2px 30px;
-        }
-        .delete-item{
-   
-        margin-top: 10px;
-        padding: 2px 22px;
-        }
-      
-}
-@media screen and  (max-width:481px){
-  
+       justify-content: space-between;
+     
        
+       }
+      
+       .admin-options .item{
+        width: 45%;
+        margin-left: 0px;
+        margin-bottom: 50px;
+        
+    }
         .item{
-            display: block;
-            width: 95%;
+            width: 100%;
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 1px solid lightgray;
         }
         .item-img{
-        background-color: black;
-        width: 95%;
+        width: 100%;
         height: 110px;
         margin: 0px auto;
         }
         .item-details{
-            width: 90%;
+            width: 100%;
             margin: 0px auto;
         }
-
+        .det-opt{
+            display: flex;
+            justify-content:space-between;
+        }
     
   
         
         .item-options{
-            width: 75%;
-            margin-left: 0px;
-            margin: 0px auto;
+           
         }
         .item-options button{
-            display: inline-block;
-            width: 40%;
+            display: block;
+
             
         }
         .edit-item{
     
-        
-        padding: 3px 30px;
+            padding: 5px 10px;
         }
         .delete-item{
-          
-    
-        padding: 3px 22px;
+            padding: 5px 10px;
         }
         
        

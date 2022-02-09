@@ -33,6 +33,7 @@ export const useSignup = () => {
           email: email,
           displayName: displayName,
           imgUrl: imgUrl,
+          time:res.user.metadata.creationTime
         })
        // dispatch login action
        dispatch({ type: 'LOGIN', payload: res.user })

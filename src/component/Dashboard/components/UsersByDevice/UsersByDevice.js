@@ -40,16 +40,24 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const UsersByDevice = props => {
-  const { className, ...rest } = props;
-const {documents}=useCollection('purchases');
+  const { className,documents, ...rest } = props;
+
 let desi=0;
 let fast=0;
+let total=0;
 if(documents) {documents.map((i)=>{
-  i.product.map((cat)=>{ if(cat.category==="Desi"){desi+=1} 
-  if(cat.category==="Fast Food"){fast+=1}})}
+
+  for (let j = 0; j < i.product.length; j++) {
+    if(i.product[j].category==="Desi"){desi+=i.product[j].quantity}
+    if(i.product[j].category==="Fast Food"){fast+=i.product[j].quantity}
+
+    console.log(i.product[j].category)
+    
+  }
+}
   
   )
-  console.log(fast)
+ total=fast+desi;
 }
 
   const classes = useStyles();
@@ -108,19 +116,20 @@ if(documents) {documents.map((i)=>{
   const devices = [
     {
       title: 'Fast Food',
-      value: fast,
+      value: (fast/total * 100).toFixed(2),
       icon: <TabletMacIcon />,
       color: theme.palette.primary.main
     },
     {
       title: 'Desi',
-      value: desi,
+      value: (desi/total *100).toFixed(2),
       icon: <PhoneIphoneIcon />,
       color: theme.palette.success.main
     }
   ];
 
   return (
+    
     <Card
       {...rest}
       className={clsx(classes.root, className)}
@@ -148,6 +157,7 @@ if(documents) {documents.map((i)=>{
               <Typography
                 style={{ color: device.color }}
                 variant="h2"
+                style={{width:'100%'}}
               >
                 {device.value}%
               </Typography>

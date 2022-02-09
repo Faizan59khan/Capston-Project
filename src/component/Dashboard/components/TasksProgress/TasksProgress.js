@@ -64,7 +64,7 @@ const TasksProgress = props => {
             >
               TOTAL ORDERS
             </Typography>
-            <Typography variant="h3">{orders}</Typography>
+            <Typography variant="h3" style={{width:'100%'}}>{orders}</Typography>
           </Grid>
           <Grid item>
             <Avatar className={classes.avatar}>

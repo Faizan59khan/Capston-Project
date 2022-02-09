@@ -9,10 +9,14 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../hooks/useAuthContext';
 import Contact from '../Contact/Contact'
 import Footer from '../../components/Footer'
+
 const Home = () => {
   const navigate = useNavigate()
   const { user } = useAuthContext();
-
+  if(user.email==="sudofyproject@gmail.com"){
+    navigate('/dashboard')
+  }
+ 
 
   const { logout, error, isPending } = useLogout();
   

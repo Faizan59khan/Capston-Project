@@ -35,6 +35,7 @@ import { Suspense } from 'react';
 const Dashboard = lazy(() => import('./component/Dashboard/Dashboard'))
 
 
+
 Chart.helpers.extend(Chart.elements.Rectangle.prototype, {
   draw: chartjs.draw
 });
@@ -54,20 +55,17 @@ function App() {
 
             {user && <Route path="/users" element={<UserList />} />}
             {user && <Route path="/products" element={<ProductList />} />}
-            {user && <Route path="/account" element={<Account />} />}
-            {user && <Route path="/settings" element={<Settings />} />}
-            {user && <Route path="*" element={<NotFound />} />}
             <Route exact path="/" element={<Home />} />
             {user && <Route path="/dashboard" element={
               <Suspense fallback={<><br /><br /><br /><br />Loading....</>}>
                 <Dashboard />
               </Suspense>
             } />}
-            {user && <Route path="/admin" element={<Admin />} />}
+          
             {user && <Route path="/AdminForm" element={<AdminForm />} />}
-            {user && <Route path="/AdminDeals" element={<AdminDeals />} />}
+          
             {user && <Route path="/AdminItems" element={<AdminItems />} />}
-            {user && <Route path="/AdminForm2" element={<AdminForm2 />} />}
+          
 
             <Route path="/cart" element={<Cart />} />
             {user && <Route path="/purchases" element={<Purchases />} />}
@@ -78,7 +76,7 @@ function App() {
             {!user && <Route path="/login" element={<Login />} />}
             {!user && <Route path="/Signup" element={<Signup />} />}
           </Routes>
-
+       
         </BrowserRouter>}
     </ThemeProvider>
 
