@@ -89,7 +89,12 @@ const AdminForm = () => {
   return <div>
      
       <form className='adminForm' onSubmit={handleSubmit}>
+        <div className='form-title'>
+      <div><h3>Add Item</h3></div>
       <div className='cancel'><span onClick={()=>{navigate('/products')}}>X</span></div>
+      </div>
+      
+    <div className='myinput'>
                 <input
                     required
                     placeholder='Name'
@@ -135,6 +140,7 @@ const AdminForm = () => {
         onChange={handleFileChange}
         required
       />
+      </div>
       {thumbnailError && <div className="error">{thumbnailError}</div>}
 
       <div className='button'>

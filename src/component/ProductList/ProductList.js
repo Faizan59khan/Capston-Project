@@ -31,11 +31,11 @@ const ProductList = () => {
 
   return (
     <div className={classes.root}>
-      <div className={classes.content}>
+
         
         <AdminItems documents={documents} error={error}/>
         
-      </div>
+
     </div>
   );
 };

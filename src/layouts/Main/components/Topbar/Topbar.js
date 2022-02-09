@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 const Topbar = props => {
   const { className, onSidebarOpen, ...rest } = props;
-const {logout}=useLogout()
+
   const classes = useStyles();
 
   const [notifications] = useState([]);
@@ -32,32 +32,17 @@ const {logout}=useLogout()
     <AppBar
       {...rest}
       className={clsx(classes.root, className)}
+      style={{backgroundColor:"#f98169"}}
     >
       <Toolbar>
-        <RouterLink to="/">
-        <i class="fa-solid fa-burger"></i>
-        </RouterLink>
-        <h4 style={{color: "white"}}>Halal Foods</h4>
+        
+        <h4 style={{color: "white"}}><i class="fa-solid fa-burger"></i> Halal Foods</h4>
+        
+        
         <div className={classes.flexGrow} />
-        <Hidden mdDown>
-          <IconButton color="inherit">
-            <Badge
-              badgeContent={notifications.length}
-              color="primary"
-              variant="dot"
-            >
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
-        </Hidden>
+       
         <Hidden xlUp>
-        <IconButton
-            className={classes.signOutButton}
-            color="inherit"
-            onClick={logout}
-          >
-            <InputIcon />
-          </IconButton>
+        
           <IconButton
             color="inherit"
             onClick={onSidebarOpen}

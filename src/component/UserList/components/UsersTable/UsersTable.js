@@ -103,38 +103,19 @@ const UsersTable = props => {
             <Table>
               <TableHead>
                 <TableRow>
-                  <TableCell padding="checkbox">
-                    <Checkbox
-                      checked={selectedUsers.length === users.length}
-                      color="primary"
-                      indeterminate={
-                        selectedUsers.length > 0 &&
-                        selectedUsers.length < users.length
-                      }
-                      onChange={handleSelectAll}
-                    />
-                  </TableCell>
                   <TableCell>Name</TableCell>
                   <TableCell>ID</TableCell>
                   <TableCell>Email</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {users.slice(0, rowsPerPage).map(user => (
+                {users.sort((x,y)=>x.displayName.localeCompare(y.displayName)).map(user => (
                   <TableRow
                     className={classes.tableRow}
                     hover
                     key={user.id}
                     selected={selectedUsers.indexOf(user.id) !== -1}
                   >
-                    <TableCell padding="checkbox">
-                      <Checkbox
-                        checked={selectedUsers.indexOf(user.id) !== -1}
-                        color="primary"
-                        onChange={event => handleSelectOne(event, user.id)}
-                        value="true"
-                      />
-                    </TableCell>
                     <TableCell>
                       <div className={classes.nameContainer}>
                         <Avatar
@@ -154,17 +135,6 @@ const UsersTable = props => {
           </div>
         </PerfectScrollbar>
       </CardContent>
-      <CardActions className={classes.actions}>
-        <TablePagination
-          component="div"
-          count={users.length}
-          onChangePage={handlePageChange}
-          onChangeRowsPerPage={handleRowsPerPageChange}
-          page={page}
-          rowsPerPage={rowsPerPage}
-          rowsPerPageOptions={[5, 10, 25]}
-        />
-      </CardActions>
     </Card>
   );
 };
