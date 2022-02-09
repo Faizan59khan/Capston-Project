@@ -36,6 +36,22 @@
 }
 
 /*===================== Media Queries============================= */
+@media only screen and (max-width: 1200px) {
+  #biryani {
+    width: 25%;
+    height: 70%;
+    top: 40px;
+  }
+  .biryani-img {
+    width: 24%;
+    height: 68%;
+    top: 40px;
+  }
+  #cover-img {
+    height: auto;
+  }
+}
+
 @media only screen and (max-width: 375px) {
   #biryani {
     width: 150px;

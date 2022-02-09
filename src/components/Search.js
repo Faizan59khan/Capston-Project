@@ -12,6 +12,7 @@ mic.interimResults = true
 mic.lang = 'en-US'
 
 function Search() {
+  const [alert, setAlert] = useState(false);
   const [isListening, setIsListening] = useState(false)
   const [value,setValue]=useState("");
   const [note, setNote] = useState(null)
@@ -58,12 +59,16 @@ function Search() {
 
     if(note.includes("biryani") || note.includes("burger") || note.includes("pizza") 
     ||note.includes("pulao") ){   
-      console.log("yes")                                                      //if the speech value contains these inputs
-        dispatch({type: 'Search', payload: note})
-     
+      //console.log("yes")                                                      //if the speech value contains these inputs
+      dispatch({type: 'Filter', payload: null})
+      dispatch({type: 'Search', payload: note})
     }
     else{
-      alert("There is no item such item")
+      setAlert(true);
+      setTimeout(() => {
+        setAlert(false)
+      }, 3000)
+      dispatch({type: 'Filter', payload: null})
       dispatch({type: 'Search', payload: null})
     }
 
@@ -75,15 +80,28 @@ function Search() {
     console.log(value);
    if(value.includes("biryani") || value.includes("burger") || value.includes("pizza") 
     ||value.includes("pulao")){
+      dispatch({type: 'Filter', payload: null})
       dispatch({type: 'Search', payload: value})
     }
    else{
-      alert("There is no item such item")
+      setAlert(true);
+      setTimeout(() => {
+        setAlert(false)
+      }, 3000)
+      dispatch({type: 'Filter', payload: null})
       dispatch({type: 'Search', payload: null})
     }
   }
 
   return (
+    <>
+      <div className="alertt" style={{ display: alert ? 'block' : 'none' }}>
+    <button type="button" class="close" data-dismiss="alert" onClick={()=>setAlert(false)} aria-hidden="true">×</button>
+      <div className='alert-message'>
+      <i class="fa-solid fa-check"></i>
+      <strong> <p>There is no such item</p> </strong> 
+      </div>
+    </div>
 
     <div className='d-flex search-input'>
      <input id='sea-inp' type="form-control me-2" placeholder={value?value:"Search"} onChange={(e)=>setValue(e.target.value)} />    
@@ -97,7 +115,7 @@ function Search() {
       </div>
       <button className="btn btn-outline-success" onClick={note?handleSearch:handleValue} >Search</button>
      </div>
- 
+    </>
   )
 }
 

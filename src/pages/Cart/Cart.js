@@ -2,25 +2,30 @@ import React, { useEffect, useState } from 'react';
 import { useAuthContext } from '../../hooks/useAuthContext';
 import { useFirestore } from '../../hooks/useFirestore'
 import './Cart.scss'
+import useWebAnimations,{backOutRight} from "@wellyshen/use-web-animations";
 
 const Cart = () => {
 
     const [loc, setLoc] = useState("");
+    const [alert, setAlert] = useState(false);
     const [disable, setDisable] = useState(true);
     const { dispatch, cart, user } = useAuthContext();
     const { addDocument, response } = useFirestore("purchases")
     const { addDocument: addItems, response: res } = useFirestore("itemlist")
+    
 
     const checkOut = async () => {
+
 
         let result = [];
         setDisable(false);
         cart.transId = user.uid;
+        cart.userEmail=user.email;
         cart.name = user.displayName;
         cart.loc = loc;
-        cart.status = "placed";
+        cart.status = ["placed","confirmed","preparing","delivered","completed"];
         // console.log("u"+user.uid+"/n"+cart.transId);
-        cart && cart.product.map((val) => {
+        cart && cart.product.map((val) => {                //only items
             result.push(val.item);
         })
         if(cart.loc!==""){
@@ -28,7 +33,10 @@ const Cart = () => {
         await addDocument(cart);
         }
         else{
-            alert("Enter Your Location")
+            setAlert(true)
+            setTimeout(() => {
+              setAlert(false)
+            }, 3000)
         }
 
 
@@ -37,6 +45,7 @@ const Cart = () => {
     }
 
     const removeItem = (item) => {
+
 
         let result = [];
         let total=0;
@@ -85,12 +94,26 @@ const Cart = () => {
 
     return (
         <div>
+            <div className="alertt" style={{ display: alert ? 'block' : 'none' }}>
+                <button type="button" class="close" data-dismiss="alert" onClick={() => setAlert(false)} aria-hidden="true">×</button>
+                <div className='alert-message'>
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                    <strong>Enter Your Location</strong>
+                </div>
+            </div>
             <div className='cart'>
                 <h1>Cart</h1>
+                {!cart && 
+                 <div className='cart-item'>
+                 <div className='cart-Noitem'><i class="fa-solid fa-cart-shopping"></i>
+                   <h2>No items in a cart</h2>
+                 </div>
+                 </div>
+                }
                 {
                     cart && cart.product.map((item, index) => {
                         return (
-                            <div className='cart-item' key={index}>
+                            <div className='cart-item'  key={index}>
                                 <img src={item.img} />
                                 <div className='cart-details'>
                                     <h2>{item.item}</h2>

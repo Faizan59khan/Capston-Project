@@ -1,37 +1,43 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { useParams } from "react-router-dom"
 import { useDocument } from '../../hooks/useDocument'
 import {useAuthContext} from '../../hooks/useAuthContext'
 import './Products.scss'
 import AprioriAlgo from '../Products/AprioriAlgo'
 import Footer from '../../components/Footer'
+import Loading from '../../components/Loading'
+import useWebAnimations, {backInRight,backInLeft} from "@wellyshen/use-web-animations";
 
 
 const ProductDetails = () => {
-     // this one
-   const [alert, setAlert] = useState(false);
-   const [disable,setDisable]=useState(false);
-    const {id}=useParams();
-    const {document,error}=useDocument('products',id);
-    const {dispatch,cart,search,filter}=useAuthContext();
+     
+  const { ref } = useWebAnimations({...backInRight})
+  const [alert, setAlert] = useState(false);
+  const [disable, setDisable] = useState(false);
+  const { id } = useParams();
+  const { document, error } = useDocument('products', id);
+  const { dispatch, cart} = useAuthContext();
+
+   
+
 
     if (error) {
         return <div className="error">{error}</div>
       }
       if (!document) {
-        return <div className="loading">Loading...</div>
+        return <Loading/>
       }
 
     const addtoCart = (item)=>{
       
         setDisable(true);
         let flag=0;
-      //these lines
+  
       setAlert(true)
       setTimeout(() => {
         setAlert(false)
-      }, 1000)
-    //
+      }, 3000)
+    
   
          if(!cart){
           dispatch({ type: 'ADD_TO_CART', payload: {product:[{item:item.name,quantity: 1,price:item.price,flavour:item.flavour,img:item.imgUrl,category:item.category}],total:item.price} })
@@ -65,23 +71,27 @@ const ProductDetails = () => {
 
   return (    <> 
     <div className="alertt" style={{ display: alert ? 'block' : 'none' }}>
-      <strong>{document.flavour}</strong> is added to cart.
+    <button type="button" class="close" data-dismiss="alert" onClick={()=>setAlert(false)} aria-hidden="true">×</button>
+      <div className='alert-message'>
+      <i class="fa-solid fa-check"></i>
+      <strong>{document.flavour} <p> is added to cart.</p> </strong> 
+      </div>
     </div>
  
     <div className='product-details'>
 
-      <img src={document.imgUrl}/>
-      <div className='product-info'>
-      <div className='product-price'>
-      <h2>{document.flavour}</h2>
-      <h2>${document.price}</h2>
-      </div>
-      <h2>Category</h2>
-      <p>{document.category}</p>
-      <h2>Details</h2>
-      <p>{document.details}</p>
+      <img src={document.imgUrl} />
+      <div className='product-info' ref={ref}>
+        <div className='product-price'>
+          <h2>{document.flavour}</h2>
+          <h2>${document.price}</h2>
+        </div>
+        <h2>Category</h2>
+        <p>{document.category}</p>
+        <h2>Details</h2>
+        <p>{document.details}</p>
 
-      <button className={disable?"dis-btn":"cart-btn"} onClick={()=> addtoCart(document)} disabled={disable}>Add to Cart</button>
+        <button className={disable ? "dis-btn" : "cart-btn"} onClick={() => addtoCart(document)} disabled={disable}>Add to Cart</button>
       </div>
 
     </div>

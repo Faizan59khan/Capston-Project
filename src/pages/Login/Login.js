@@ -72,8 +72,8 @@ const Login = () => {
                                 <label for="remember-me" className="label-agree-term"><span><span></span></span>Remember me</label>
                             </div>
                             <div className="form-group form-button">
-                                {isPending && <input type="submit" name="signin" id="signin" className="form-submit" value="Loading..." />}
-                                {!isPending && <input type="submit" name="signin" id="signin" className="form-submit" value="Log in" />}
+                                {isPending && <input  type="submit" name="signin" id="signin" className="form-submit" value="Loading..." />}
+                                {!isPending && <input style={{background:"#f98169"}} type="submit" name="signin" id="signin" className="form-submit" value="Log in" />}
                                 {error && <p>{error}</p>}
                             </div>
 

@@ -58,10 +58,10 @@ const Navbar = () => {
                   <a  onClick={logoutUser} className="nav-link">Log out</a>
               </li>
               }
+        
             </ul>
-            <Search />
+            <Search/>
           </div>
-          
         </div>
       </nav>
 

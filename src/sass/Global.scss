@@ -32,3 +32,45 @@ h2 {
   font-size: var(--fs-h2);
 
 }
+
+/* ALERT DESIGN */
+.alertt{
+  position: fixed;
+  width: 100%;
+  font-size: 15px;
+  z-index: 30;
+  top: 0;
+  background: #33cc33;
+  padding: 1rem;
+  .alert-message{
+    display: flex;
+     i{
+       font-size: 22px;
+       padding: 2px;
+      margin-right: 5px;
+     }
+     strong{
+       p{
+         display: inline-block;
+         font-weight: lighter;
+         color: #000;
+       }
+     }
+  
+  }
+}
+.close {
+  float: right;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+}
+.close:hover,.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: .5;
+}
