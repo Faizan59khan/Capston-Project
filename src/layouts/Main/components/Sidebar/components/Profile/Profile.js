@@ -50,7 +50,7 @@ const Profile = props => {
       >
         IMTIAZ & FAIZAN
       </Typography>
-      <Typography variant="body2">Co-Founder</Typography>
+      <Typography style={{textAlign:'center'}}variant="body2">Co-Founder</Typography>
     </div>
   );
 };

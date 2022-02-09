@@ -7,7 +7,9 @@ import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import { List, ListItem, Button, colors } from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
-
+import { IconButton } from '@material-ui/core';
+import InputIcon from '@material-ui/icons/Input';
+import {useLogout} from '../../../../../../hooks/useLogout'
 const useStyles = makeStyles(theme => ({
   root: {},
   item: {
@@ -53,6 +55,7 @@ const CustomRouterLink = forwardRef((props, ref) => (
 const SidebarNav = props => {
   const { pages, className,onClose, ...rest } = props;
 const navigate=useNavigate()
+const {logout}=useLogout()
   const classes = useStyles();
 
   return (
@@ -78,6 +81,21 @@ const navigate=useNavigate()
           </Button>
         </ListItem>
       ))}
+      <ListItem
+          className={classes.item}
+          disableGutters
+        >
+          <IconButton
+            className={classes.signOutButton}
+            color="inherit"
+            onClick={logout}
+          >
+            
+            <div className={classes.icon}>{<InputIcon />}</div>
+            Logout
+          </IconButton>
+        </ListItem>
+      
     </List>
   );
 };

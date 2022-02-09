@@ -23,7 +23,7 @@ const Dashboard = () => {
   let income=0;
   if(userr){totalusers=userr.length;}
   if(order){
-    console.log(order);
+    
     orders=order.length
     order.map((orderr)=>income+=orderr.total)
   }
@@ -71,7 +71,7 @@ const Dashboard = () => {
           xl={9}
           xs={12}
         >
-          <LatestSales />
+        {order &&  <LatestSales documents ={order}/>}
         </Grid>
         <Grid
           item
@@ -80,7 +80,7 @@ const Dashboard = () => {
           xl={3}
           xs={12}
         >
-          <UsersByDevice />
+       {order &&   <UsersByDevice documents={order}/>}
         </Grid>
         <Grid
           item

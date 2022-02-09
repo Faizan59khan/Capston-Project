@@ -50,38 +50,61 @@ const useStyles = makeStyles(theme => ({
 
 const statusColors = {
             placed:'danger',
-                 confirm:'warning',
+                 confirmed:'warning',
                preparing:'info',
-              deliever:'primary',
-                 complete:'success'
+              delivered:'primary',
+                 completed:'success'
+                 
   
 
 };
 
 const LatestOrders = props => {
   const { className,order, ...rest } = props;
-
+console.log(order)
   const classes = useStyles();
  
   const [orders] = useState(order);
   const {user,location} =useAuthContext();
   const { documents, error }=useCollection("purchases");
-  console.log(documents);
-  if(documents){
-    for (let i = 0; i < orders.length; i++) {
-     let my =documents[i];
-      orders[i]={...my}
-      
-    }
-  }
+
+  
   const {addDocument, updateDocument,response}=useFirestore("purchases");
   
  
   
 
+ 
+  const changeStatus= async (value,item,id)=>{  
+       //change the status of customer
+    let  myst;
+    switch (value) {
+      case "placed":
+          console.log("CC"+value);
+          myst=["placed","confirmed","preparing","delivered","completed"]
+        break;
+        case "confirmed":
+          console.log("CC"+value);
+          myst=["confirmed","preparing","delivered","completed"]
+        break;
+        case "preparing":
+      
+          myst=["preparing","delivered","completed"]
+        break;
+        case "delivered":
 
-  const changeStatus= async (value,item,id)=>{     //change the status of customer
-    item.status=value;
+          console.log("DD"+value);
+          myst=["delivered","completed"]
+        break;
+        case "completed":
+          myst=["completed"]
+        break;
+    
+    
+      default:
+        break;
+    }
+   item.status=myst;
     await updateDocument(id,item);
     if(response){
       console.log(response)
@@ -106,56 +129,87 @@ const LatestOrders = props => {
                 <TableRow>
                   <TableCell>Order ID</TableCell>
                   <TableCell>Customer</TableCell>
-                  <TableCell sortDirection="desc">
-                    <Tooltip
-                      enterDelay={300}
-                      title="Sort"
-                    >
-                      <TableSortLabel
-                        active
-                        direction="desc"
-                      >
+                  <TableCell>Email</TableCell>
+                  <TableCell >
+                   
                         Location
-                      </TableSortLabel>
-                    </Tooltip>
+                     
+         
                   </TableCell>
                   <TableCell>Status</TableCell>
                   <TableCell>Change Status</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
-                {orders.map(order => { return(
+                {order.sort((a,b)=>(a.createdAt>b.createdAt)?-1:((b.createdAt>a.createdAt)?1:0)).map(ord => { return(
                   
                   <TableRow
                     hover
-                    key={order.id}
+                    key={ord.id}
                   >
-                    <TableCell>{order.id}</TableCell>
-                    <TableCell>{order.name}</TableCell>
+                    <TableCell>{ord.id}</TableCell>
+                    <TableCell>{ord.name}</TableCell>
+                    <TableCell>{ord.userEmail}</TableCell>
                     <TableCell>
-                      {order.loc}
+                      {ord.loc}
                       
                     </TableCell>
                     <TableCell>
                       <div className={classes.statusContainer}>
                         <StatusBullet
                           className={classes.status}
-                          color={statusColors[order.status]}
+                          color={statusColors[ord.status[0]]}
                           size="sm"
                         /> 
-                        {order.status}
+                        {ord.status[0]}
                       
                       </div>
                     </TableCell>
                     <TableCell>
-                    <select name="status" id="state" defaultValue={order.status} onChange={(e)=>changeStatus(e.target.value,order,order.id)}>
-                    <option value="placed">Placed</option>
-                    <option value="confirm">Confirm</option>
-                    <option value="preparing">Preparing</option>
-                    <option value="deliever">Delievered</option>
-                    <option value="complete">Completed</option>
+                    <select name="status" id="state"  onChange={(e)=>changeStatus(e.target.value,ord,ord.id)}>
+                      {ord.status[0]==="placed" && 
+                      <><option value="placed">placed</option>
+                      <option value="confirmed">confirmed</option>
+                      <option value="preparing">preparing</option>
+                      <option value="delivered">delivered</option>
+                      <option value="completed">completed</option>
+                      </>
+                      }
+                      {ord.status[0]==="confirmed" && 
+                      <>
+                      <option value="confirmed">confirmed</option>
+                      <option value="preparing">preparing</option>
+                      <option value="delivered">delivered</option>
+                      <option value="completed">completed</option>
+                      </>
+                      }
+                      {ord.status[0]==="preparing" && 
+                      <>
+                      <option value="preparing">preparing</option>
+                      <option value="delivered">delivered</option>
+                      <option value="completed">completed</option>
+                      </>
+                      }
+                      {ord.status[0]==="delivered" && 
+                      <>
+                      <option value="delivered">delivered</option>
+                      <option value="completed">completed</option>
+                      </>
+                      }
+                      {ord.status[0]==="completed" && 
+                      <>
+                     
+                      </>
+                      }
+                      
+                    
+                    
+                     
+                   
+                   
                     
                 </select>
+             
                 </TableCell>
                   </TableRow>
                 )})}

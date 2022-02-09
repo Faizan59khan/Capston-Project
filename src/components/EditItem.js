@@ -8,7 +8,7 @@ const EditItem = ({Edit,document}) => {
     const navigate=useNavigate()
     const [name, setName] = useState(document.name)
     const [price, setPrice] = useState(document.price)
-    const [desc, setDesc] = useState(document.desc)
+    const [desc, setDesc] = useState(document.details)
     const [img, setImg] = useState('')
     const [flavour,setFlavour]=useState(document.flavour);
     const [category, setCategory] = useState(document.category)
@@ -51,7 +51,7 @@ const EditItem = ({Edit,document}) => {
         const item = {
             name:name,
             price:price,
-            desc:desc,
+            details:desc,
             category,
            flavour,
             ratings:0,
@@ -76,7 +76,11 @@ const EditItem = ({Edit,document}) => {
         }
   return <div>
 <form className='adminForm' onSubmit={handleSubmit}>
+<div className='form-title'>
+      <div><h3>Edit Item</h3></div>
 <div className='cancel'><span onClick={()=>{Edit(false)}}>X</span></div>
+</div>
+<div className='myinput'>
    <input
        required
        placeholder='Name'
@@ -112,7 +116,7 @@ const EditItem = ({Edit,document}) => {
        onChange={(e) => setDesc(e.target.value)}
        value={desc}
    />
-  
+  </div>
 
 <div className='button'>
    <button>
