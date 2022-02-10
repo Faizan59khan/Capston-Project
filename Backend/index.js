@@ -4,7 +4,7 @@ var cors = require('cors')
 
 //firebase
 var admin = require("firebase-admin");
-var serviceAccount = require("../service_document/serviceAccount.json");
+var serviceAccount = require("./service_document/serviceAccount.json");
 
 
 admin.initializeApp({
@@ -77,6 +77,9 @@ app.get("/api", async (req, res) => {
     res.json({freqItem: frequentItemsets});
   });
 
+  app.get("/", async (req, res) => {
+    res.json({});
+  });
 
   
 app.listen(PORT, () => {

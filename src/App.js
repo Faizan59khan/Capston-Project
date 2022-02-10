@@ -20,6 +20,7 @@ import Track from './pages/MyOrders/Track';
 import ProductDetails from './pages/Products/ProductDetails';
 import { useAuthContext } from './hooks/useAuthContext'
 import { lazy } from 'react';
+import Loading from './components/Loading'
 import { Suspense } from 'react';
 
 const Dashboard = lazy(() => import('./component/Dashboard/Dashboard'))      //lazy loading
@@ -47,7 +48,7 @@ function App() {
             <Route path="/products" element={<ProductList />} />
             <Route exact path="/" element={<Home />} />
             <Route path="/dashboard" element={
-              <Suspense fallback={<><br /><br /><br /><br />Loading....</>}>
+              <Suspense fallback={<Loading/>}>
                 <Dashboard />
               </Suspense>
             } />

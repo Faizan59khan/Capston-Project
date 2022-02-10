@@ -16,7 +16,7 @@ const AprioriAlgo = () => {
   useEffect(() => {
 
 
-    fetch("/api").then((res) => {           //fetching data from node server
+    fetch("https://agile-harbor-05013.herokuapp.com/api").then((res) => {           //fetching data from node server
       console.log(res)
       return (
         res.json().then((data) => {

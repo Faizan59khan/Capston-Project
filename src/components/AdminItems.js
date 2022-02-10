@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../hooks/useAuthContext';
 import { useFirestore } from '../hooks/useFirestore'
 import EditItem from './EditItem';
+import Loading from '../components/Loading'
 import './Admin.css'
 import ProductsToolbar from '../component/ProductList/components/ProductsToolbar/ProductsToolbar'
 const AdminItems = ({ documents, error }) => {
@@ -29,6 +30,7 @@ const AdminItems = ({ documents, error }) => {
     return (<>
 
         {!edit && <div> {error && <p className="error">{error}</p>}
+        {!documents && <Loading/>}
             {documents && <>
                 <ProductsToolbar />
                 <div className='admin-options'>
