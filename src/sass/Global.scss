@@ -23,14 +23,16 @@ $fontFam: 'Raleway', sans-serif;
 h2,
 h4,h1 {
   color: var(--clr-head);
+  font-family: $fontFam;
 }
 h1{
   font-size: 4rem;
   font-weight: bold;
+  font-family: $fontFam;
 }
 h2 {
   font-size: var(--fs-h2);
-
+  font-family: $fontFam;
 }
 
 /* ALERT DESIGN */

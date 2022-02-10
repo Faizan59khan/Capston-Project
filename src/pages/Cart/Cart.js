@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useAuthContext } from '../../hooks/useAuthContext';
 import { useFirestore } from '../../hooks/useFirestore'
 import './Cart.scss'
-import useWebAnimations,{backOutRight} from "@wellyshen/use-web-animations";
+import useWebAnimations,{heartBeat} from "@wellyshen/use-web-animations";
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
 
@@ -12,6 +13,21 @@ const Cart = () => {
     const { dispatch, cart, user } = useAuthContext();
     const { addDocument, response } = useFirestore("purchases")
     const { addDocument: addItems, response: res } = useFirestore("itemlist")
+    const navigate=useNavigate();
+
+ 
+    const { ref } = useWebAnimations({ ...heartBeat });
+
+    useEffect(()=>{
+        if(user){
+            if(user.email === "sudofyproject@gmail.com"){
+              navigate("/dashboard");
+            }
+          }
+      if(!user){
+          navigate("/login")
+      }
+    },[user,navigate])
     
 
     const checkOut = async () => {
@@ -102,7 +118,7 @@ const Cart = () => {
                 </div>
             </div>
             <div className='cart'>
-                <h1>Cart</h1>
+                <h1 ref={ref}>Cart</h1>
                 {!cart && 
                  <div className='cart-item'>
                  <div className='cart-Noitem'><i class="fa-solid fa-cart-shopping"></i>

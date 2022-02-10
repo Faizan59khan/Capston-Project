@@ -57,7 +57,7 @@ const Sidebar = props => {
     },
     {
       title: 'Products',
-      href: '/AdminItems',
+      href: '/products',
       icon: <ShoppingBasketIcon />
     }
   ];

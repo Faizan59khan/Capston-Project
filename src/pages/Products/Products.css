@@ -23,15 +23,18 @@
 h2,
 h4, h1 {
   color: var(--clr-head);
+  font-family: "Raleway", sans-serif;
 }
 
 h1 {
   font-size: 4rem;
   font-weight: bold;
+  font-family: "Raleway", sans-serif;
 }
 
 h2 {
   font-size: var(--fs-h2);
+  font-family: "Raleway", sans-serif;
 }
 
 /* ALERT DESIGN */
@@ -92,13 +95,14 @@ h2 {
 
 .products-container h1 {
   padding: 1rem;
-  margin: 1rem;
+  margin: 1.5rem;
+  font-family: "Raleway", sans-serif;
 }
 
 .card {
-  width: 300px;
+  width: 290px;
   height: 360px;
-  margin-top: 20px;
+  margin-top: 30px;
   border-radius: 13px;
   overflow: hidden;
   position: relative;
@@ -150,7 +154,7 @@ h2 {
 }
 
 .popular-items {
-  width: 70%;
+  width: 90%;
   height: auto;
   margin: 0 auto;
   padding: 1.5rem;
@@ -161,20 +165,22 @@ h2 {
   background: #fff;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   border: 1px solid #e7e4e4;
   -webkit-box-shadow: 1px 2px #e7e4e4;
           box-shadow: 1px 2px #e7e4e4;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   font-family: 'Montserrat', sans-serif;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .popular-items a {
   text-decoration: none;
   color: black;
+  font-family: "Raleway", sans-serif;
 }
 
 .product {
@@ -185,6 +191,7 @@ h2 {
 
 .product button {
   width: 70%;
+  font-family: "Raleway", sans-serif;
 }
 
 /* Individual Product Page */
@@ -211,6 +218,7 @@ h2 {
 .product-details p {
   font-size: 2rem;
   text-align: center;
+  font-family: "Raleway", sans-serif;
 }
 
 .product-details .product-info {
@@ -252,6 +260,7 @@ h2 {
   padding: .5rem;
   margin: 1rem;
   border-bottom: 2px solid #f98169;
+  font-family: "Raleway", sans-serif;
 }
 
 .dis-btn {

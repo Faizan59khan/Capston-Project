@@ -21,7 +21,11 @@ $colorTheme:  #f98169;
     button:hover{
         background: #f3a697;
       }
-
+    h1{
+        margin: 1rem;
+        padding: 1rem;
+        font-family: $fontFam;
+    }
    
 }
 .cart-item{
@@ -65,10 +69,12 @@ $colorTheme:  #f98169;
         margin: 2px;
         h2{
             font-size: 3rem;
+            font-family: $fontFam;
         }
     }
     p{
         font-size: 2rem;
+        font-family: $fontFam;
     }
     i{
         font-size: 3rem;
@@ -108,12 +114,14 @@ $colorTheme:  #f98169;
         color: #0c3653;
         font-weight: bold;
         margin: 5px;
+        font-family: $fontFam;
     }
     input{
         width: 100%;
         height: 45px;
         margin-right: 0 auto;
         outline: #0c3653;
+        border: 1px solid #0c3653;
         border-radius: 10px;
         box-shadow: inset 0px 1px 8px rgba(0, 0, 0, 0.2);
     }

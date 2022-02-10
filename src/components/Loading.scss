@@ -1,15 +1,18 @@
-.loading{
-    width: 80%;
-    margin: 12rem auto;
-    display: inline-block;
-    padding: 1rem;
-    i{
-        font-size: 50px;
-        color: #f98169;
-    }  
+@import '../sass/Global.scss';
+
+
+.loader{
+    display: flex;
+    width: 50%;
+    margin: 10rem auto;
+    align-items: center;
+    text-align: center;
     h3{
-        font-size: 4rem;
-        padding: .7rem;
-        display: inline-block;
+        font-family: $fontFam;
+        font-size: 3rem;
+        margin-left: .7rem;
     }
+
 }
+
+

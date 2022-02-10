@@ -9,14 +9,15 @@
   }
   h1{
     padding: 1rem;
-    margin: 1rem;
+    margin: 1.5rem;
+    font-family: $fontFam;
   }
 }
 
 .card {
-  width: 300px;
+  width: 290px;
   height: 360px;
-  margin-top: 20px;
+  margin-top: 30px;
   border-radius: 13px;
   overflow: hidden;
   position: relative;
@@ -57,7 +58,7 @@
 }
 
 .popular-items{
-    width: 70%;
+    width: 90%;
     height: auto;
     margin: 0 auto;
     padding: 1.5rem;
@@ -65,6 +66,7 @@
     border-radius: 15px;
     background: #fff;
     flex-wrap: wrap;
+    align-items: center;
     border: 1px solid hsl(0, 6%, 90%);
     box-shadow: 1px 2px hsl(0, 6%, 90%);
     justify-content: space-around;
@@ -74,6 +76,7 @@
     a{
       text-decoration: none;
       color: black;
+      font-family: $fontFam;
     }
  
 }
@@ -85,7 +88,7 @@
     height: 300px;
     button{
         width: 70%;
-        
+        font-family: $fontFam;
     }
 }
 
@@ -108,6 +111,7 @@
   p{
     font-size: 2rem;
     text-align: center;
+    font-family: $fontFam;
   }
   .product-info{
     width: 40%;
@@ -137,6 +141,7 @@
     padding: .5rem;
     margin: 1rem;
     border-bottom: 2px solid #f98169;
+    font-family: $fontFam;
   }
  
 }
@@ -189,6 +194,9 @@
     padding: 0;
     #products-para{
        width: 100% !important;
+    }
+    .popular-items{
+      margin: 1rem;
     }
   }
   h1{

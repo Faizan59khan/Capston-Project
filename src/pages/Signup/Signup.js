@@ -18,27 +18,27 @@ const Signup = () => {
     const { signup, error, isPending } = useSignup();
 
 
-    const { user,dispatch } = useAuthContext();
+    const { user, dispatch } = useAuthContext();
     const Navigate = useNavigate();
 
 
     useEffect(() => {
-      if(user){
-        if(user.email==="sudofyproject@gmail.com"){
-          Navigate('/dashboard')
+        if (user) {
+            if (user.email === "sudofyproject@gmail.com") {
+                Navigate('/dashboard')
+            }
+            else if (user.email !== "sudofyproject@gmail.com") {
+                Navigate('/')
+            }
         }
-        else if(user.email!=="sudofyproject@gmail.com"){
-          Navigate('/')
-        }
-      }
-     
-   }, [user,Navigate])
+
+    }, [user, Navigate])
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        signup(email, password, displayName,thumbnail)
-        dispatch({type: 'ADD_TO_CART', payload: null})
+        signup(email, password, displayName, thumbnail)
+        dispatch({ type: 'ADD_TO_CART', payload: null })
         console.log(email, password, displayName, thumbnail)
         if (!error) {
             setEmail('')
@@ -93,8 +93,8 @@ const Signup = () => {
                             </div>
                             <div className="form-group">
                                 <label for="name"><i className="zmdi zmdi-account material-icons-name fas fa-image"></i></label>
-                                <input type="file" name="img" id="img" required onChange={handleFileChange}/>
-                                {thumbnailError && <div classNameName="error">{thumbnailError}</div>} 
+                                <input type="file" name="img" id="img" required onChange={handleFileChange} />
+                                {thumbnailError && <div classNameName="error">{thumbnailError}</div>}
                             </div>
                             <div className="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" className="agree-term" />
@@ -103,8 +103,8 @@ const Signup = () => {
 
                             <div className="form-group form-button">
                                 {isPending && <input type="submit" name="signup" id="signup" className="form-submit" value="Loading..." />}
-                                {!isPending && <input style={{background:"#f98169"}} type="submit" name="signup" id="signup" className="form-submit" value="Register" />}
-                                {error && <p>{error}</p>}
+                                {!isPending && <input style={{ background: "#f98169" }} type="submit" name="signup" id="signup" className="form-submit" value="Register" />}
+                                {error && <p style={{ color: "red" }}>{error}</p>}
 
                             </div>
                         </form>
@@ -116,9 +116,9 @@ const Signup = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </section>
-       
+
     )
 }
 
