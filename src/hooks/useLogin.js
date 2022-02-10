@@ -17,12 +17,12 @@ export const useLogin = () => {
       // login
       const res = await projectAuth.signInWithEmailAndPassword(email, password)
       console.log(res.user.email);
-      if(res.user.email==="sudofyproject@gmail.com"){
-        history('/dashboard')
-      }
-      else {
-        history('/')
-      }
+      // if(res.user.email==="sudofyproject@gmail.com"){
+      //   history('/dashboard')
+      // }
+      // else {
+      //   history('/')
+      // }
       // dispatch login action
       dispatch({ type: 'LOGIN', payload: res.user })
 

@@ -5,10 +5,10 @@ import AdminItems from './AdminItems';
 const Admin = () => {
     return (
         <div>
-  
-                <AdminItems />
 
-            
+            <AdminItems />
+
+
         </div>
 
     )

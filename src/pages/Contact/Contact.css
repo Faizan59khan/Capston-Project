@@ -1,3 +1,88 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,700&display=swap");
+:root {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  --clr-head: #0c3653;
+  --clr-accent: #f98169;
+  --clr-body: #aeb2b4;
+  --fs-h2: 3rem;
+  --fs-h4: 1.8rem;
+  --ff-body: "Raleway", sans-serif;
+  font-family: "Raleway", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+}
+
+h2,
+h4, h1 {
+  color: var(--clr-head);
+  font-family: "Raleway", sans-serif;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: "Raleway", sans-serif;
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-family: "Raleway", sans-serif;
+}
+
+/* ALERT DESIGN */
+.alertt {
+  position: fixed;
+  width: 100%;
+  font-size: 15px;
+  z-index: 30;
+  top: 0;
+  background: #33cc33;
+  padding: 1rem;
+}
+
+.alertt .alert-message {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.alertt .alert-message i {
+  font-size: 22px;
+  padding: 2px;
+  margin-right: 5px;
+}
+
+.alertt .alert-message strong p {
+  display: inline-block;
+  font-weight: lighter;
+  color: #000;
+}
+
+.close {
+  float: right;
+  font-size: 25px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+}
+
+.close:hover, .close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: .5;
+}
+
 .Contact {
   max-width: 900px;
   margin: 30px auto;
@@ -8,6 +93,7 @@
   -webkit-box-shadow: 0px 2px 5px lightgray;
           box-shadow: 0px 2px 5px lightgray;
   color: #0c3653;
+  font-family: "Raleway", sans-serif;
 }
 
 .contact-us {
@@ -31,6 +117,7 @@
   color: black;
   width: 100%;
   display: block;
+  font-family: "Raleway", sans-serif;
 }
 
 .from-map {
@@ -62,6 +149,7 @@
   border-radius: 15px;
   border: 1px solid gray;
   margin-top: 10px;
+  font-family: "Raleway", sans-serif;
 }
 
 .Contact-map {
@@ -80,22 +168,21 @@
   color: white;
 }
 
-.icon2 span {
+.icon span {
   background-color: lightblue;
-  padding: 10px 20px;
   border-radius: 50%;
-}
-
-.icon3 span {
-  background-color: lightblue;
-  padding: 10px 15px;
-  border-radius: 50%;
-}
-
-.icon4 span {
-  background-color: lightblue;
-  padding: 10px 19px;
-  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 700px) {

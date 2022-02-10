@@ -1,3 +1,5 @@
+@import '../sass/Global.scss';
+
 $colorTheme:  #f98169;
 .filter{
     display: flex;
@@ -9,6 +11,7 @@ $colorTheme:  #f98169;
     color: #0c3653;
     h1{
         font-size: 3rem;
+        font-family: $fontFam;
     }
     button{
         background: $colorTheme;
@@ -21,6 +24,7 @@ $colorTheme:  #f98169;
         margin: 20px;
         border-radius: 10px;
         font-size: 1.6rem;
+        font-family: $fontFam;
     }
     button:hover{
         background: #f3a697;

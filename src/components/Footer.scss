@@ -1,6 +1,11 @@
+@import '../sass/Global.scss';
+
 .site-footer{
   margin-top: 6rem;
+  width: 100%;
   background: #f98169;
+  font-family: $fontFam;
+  text-align: left;
 }
 .site-footer .container{
   background: #f98169;
@@ -9,13 +14,20 @@
   a{
     cursor: pointer;
     color: #fff;
+    font-family: $fontFam;
   }
   p{
     color: #fff;
     background: #f98169;
+    padding: 1rem;
+    margin: 1rem auto;
+    font-family: $fontFam;
   }
-  h4{
-    font-size: 2.2rem;
+  h3{
+    font-size: 2.5rem;
+    color: #0c3653;
+    font-weight: bold;
+    font-family: $fontFam;
   }
 }
 .site-footer
@@ -50,6 +62,7 @@
 .site-footer a
 {
   color:#737373;
+  font-family: $fontFam;
 }
 .site-footer a:hover
 {
@@ -68,6 +81,7 @@
 .footer-links a
 {
   color: #fff;
+  font-family: $fontFam;
 }
 .footer-links a:active,.footer-links a:focus,.footer-links a:hover
 {
@@ -90,7 +104,8 @@
   margin-left:6px;
   margin-right:0;
   border-radius:100%;
-  background-color:#33353d
+  background-color:#33353d;
+  font-family: $fontFam;
 }
 .copyright-text
 {

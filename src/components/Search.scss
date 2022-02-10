@@ -1,3 +1,5 @@
+@import '../sass/Global.scss';
+
 .search{
     display: flex;
     position: absolute;
@@ -8,6 +10,7 @@
         background: none;
         border: none;
         outline: none;
+        font-family: $fontFam;
         i{
             padding: 3px;
             font-size: 1.8rem;
@@ -34,10 +37,12 @@
        color: #fff;
        border: 1px solid #fff;
        font-weight: bold;
+       font-family: $fontFam;
     }
     .btn:hover{
         background: #f3a697;
         border: 1px solid #f98169;
+        outline: #f98169;
     }
     ul{
       width: 50%;

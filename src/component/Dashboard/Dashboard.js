@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/styles';
 import { Grid } from '@material-ui/core';
 import Budget from './components/Budget/Budget'
@@ -8,6 +8,8 @@ import LatestSales from './components/LatestSales/LatestSales'
 import UsersByDevice from './components/UsersByDevice/UsersByDevice'
 import LatestOrders from './components/LatestOrders/LatestOrders'
 import {useCollection} from '../../hooks/useCollection'
+import { useNavigate } from 'react-router-dom';
+import { useAuthContext } from '../../hooks/useAuthContext';
 const useStyles = makeStyles(theme => ({
   root: {
     padding: theme.spacing(4)
@@ -21,6 +23,20 @@ const Dashboard = () => {
   let totalusers=0;
   let orders;
   let income=0;
+
+  const navigate=useNavigate();
+  const {user}=useAuthContext();
+   
+  useEffect(()=>{
+    if(user){
+      if(user.email !== "sudofyproject@gmail.com"){
+        navigate("/");
+      }
+    }
+    if(!user){
+      navigate("/");
+    }
+  },[user,navigate])
   if(userr){totalusers=userr.length;}
   if(order){
     

@@ -13,21 +13,25 @@ import Footer from '../../components/Footer'
 const Home = () => {
   const navigate = useNavigate()
   const { user } = useAuthContext();
-  if(user.email==="sudofyproject@gmail.com"){
-    navigate('/dashboard')
-  }
- 
 
-  const { logout, error, isPending } = useLogout();
-  
+
+  if (user) {
+    if (user.email === "sudofyproject@gmail.com") {
+      navigate('/dashboard')
+    }
+  }
+
+
+
+
   return (
     <div className='Home'>
 
       <Cover />
       <Filter />
       <Products />
-      <Contact/>
-      <Footer/>
+      <Contact />
+      <Footer />
     </div>
   )
 };

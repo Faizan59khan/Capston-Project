@@ -37,12 +37,12 @@ export const useSignup = () => {
         })
        // dispatch login action
        dispatch({ type: 'LOGIN', payload: res.user })
-      if(res.user.email==="sudofyproject@gmail.com"){
-        history('/dashboard')
-      }
-      else if(res.user.email!=="sudofyproject@gmail.com"){
-        history('/')
-      }
+      // if(res.user.email==="sudofyproject@gmail.com"){
+      //   history('/dashboard')
+      // }
+      // else if(res.user.email!=="sudofyproject@gmail.com"){
+      //   history('/')
+      // }
      
 
       if (!isCancelled) {

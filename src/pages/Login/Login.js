@@ -18,27 +18,31 @@ const Login = () => {
     const { login, error, isPending } = useLogin();
 
 
-    const { user,dispatch,cart } = useAuthContext();
+    const { user, dispatch, cart } = useAuthContext();
     const Navigate = useNavigate();
 
 
+
+
+
     useEffect(() => {
-      if(user){
-        if(user.email==="sudofyproject@gmail.com"){
-          Navigate('/dashboard')
+
+        if (user) {
+            if (user.email === "sudofyproject@gmail.com") {
+                Navigate('/dashboard')
+            }
+            else if (user.email !== "sudofyproject@gmail.com") {
+                Navigate('/')
+            }
         }
-        else if(user.email!=="sudofyproject@gmail.com"){
-          Navigate('/')
-        }
-      }
-     
-   }, [user,Navigate])
+
+    }, [user, Navigate])
 
 
     const handleSubmit = (e) => {
         e.preventDefault();
         login(email, password);
-        dispatch({type: 'ADD_TO_CART', payload: null})        //mark
+        dispatch({ type: 'ADD_TO_CART', payload: null })        //mark
         console.log(email, password)
 
     }
@@ -72,9 +76,9 @@ const Login = () => {
                                 <label for="remember-me" className="label-agree-term"><span><span></span></span>Remember me</label>
                             </div>
                             <div className="form-group form-button">
-                                {isPending && <input  type="submit" name="signin" id="signin" className="form-submit" value="Loading..." />}
-                                {!isPending && <input style={{background:"#f98169"}} type="submit" name="signin" id="signin" className="form-submit" value="Log in" />}
-                                {error && <p>{error}</p>}
+                                {isPending && <input type="submit" name="signin" id="signin" className="form-submit" value="Loading..." />}
+                                {!isPending && <input style={{ background: "#f98169" }} type="submit" name="signin" id="signin" className="form-submit" value="Log in" />}
+                                {error && <p style={{ color: "red" }}>{error}</p>}
                             </div>
 
 
@@ -91,7 +95,7 @@ const Login = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </section>
 
     )

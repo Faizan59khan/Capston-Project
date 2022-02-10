@@ -10,40 +10,40 @@ const Cover = () => {
 
   const [isCancelled, setIsCancelled] = useState(false)
 
-  useEffect(()=>{
+  useEffect(() => {
 
-   var myIndex = 0;
-   if(!isCancelled){
-    carousel();
-    
-    function carousel() {
-      var i;
-      var x = document.getElementsByClassName("biryani-img");
-      for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";  
+    var myIndex = 0;
+    if (!isCancelled) {
+      carousel();
+
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("biryani-img");
+        for (i = 0; i < x.length; i++) {
+          x[i].style.display = "none";
+        }
+        myIndex++;
+        if (myIndex > x.length) { myIndex = 1 }
+        x[myIndex - 1].style.display = "block";
+        setTimeout(carousel, 3000); // Change image every 3 seconds
       }
-      myIndex++;
-      if (myIndex > x.length) {myIndex = 1}    
-      x[myIndex-1].style.display = "block";  
-      setTimeout(carousel, 3000); // Change image every 2 seconds
     }
-  }
-   
-   return () => setIsCancelled(true)
-    
-  },[])
+
+    return () => setIsCancelled(true)
+
+  }, [])
 
 
   return (
-  <div className='cover'>
+    <div className='cover'>
       <div>
-        <img src={biryani} id='biryani' className='biryani-img'  />
-        <img src={burger} className='biryani-img'  />
-        <img src={pizza} className='biryani-img'  />
-     
+        <img src={biryani} id='biryani' className='biryani-img' />
+        <img src={burger} className='biryani-img' />
+        <img src={pizza} className='biryani-img' />
+
       </div>
-      <img src={cover} id='cover-img' alt='cover-img'/>
-  </div>
+      <img src={cover} id='cover-img' alt='cover-img' />
+    </div>
   )
 };
 

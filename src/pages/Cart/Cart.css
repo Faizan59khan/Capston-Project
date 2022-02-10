@@ -23,15 +23,18 @@
 h2,
 h4, h1 {
   color: var(--clr-head);
+  font-family: "Raleway", sans-serif;
 }
 
 h1 {
   font-size: 4rem;
   font-weight: bold;
+  font-family: "Raleway", sans-serif;
 }
 
 h2 {
   font-size: var(--fs-h2);
+  font-family: "Raleway", sans-serif;
 }
 
 /* ALERT DESIGN */
@@ -235,6 +238,7 @@ h2 {
   height: 45px;
   margin-right: 0 auto;
   outline: #0c3653;
+  border: 1px solid #0c3653;
   border-radius: 10px;
   -webkit-box-shadow: inset 0px 1px 8px rgba(0, 0, 0, 0.2);
           box-shadow: inset 0px 1px 8px rgba(0, 0, 0, 0.2);
