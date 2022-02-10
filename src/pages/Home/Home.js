@@ -13,9 +13,12 @@ import Footer from '../../components/Footer'
 const Home = () => {
   const navigate = useNavigate()
   const { user } = useAuthContext();
-  if(user.email==="sudofyproject@gmail.com"){
-    navigate('/dashboard')
+  if(user){
+    if(user.email==="sudofyproject@gmail.com"){
+      navigate('/dashboard')
+    }
   }
+  
  
 
   const { logout, error, isPending } = useLogout();

@@ -14,7 +14,7 @@ const EditItem = ({Edit,document}) => {
     const [category, setCategory] = useState(document.category)
     const [formError, setFormError] = useState(null)
     const [imgError,setImgError]=useState(null)
-    const { updateDocument, response } = useFirestore('items')
+    const { updateDocument, response } = useFirestore('products')
     const handleFileChange = (e) => {
         setImg(null)
         let selected = e.target.files[0]
@@ -50,16 +50,18 @@ const EditItem = ({Edit,document}) => {
         */
         const item = {
             name:name,
-            price:price,
+            price:Number(price),
             details:desc,
             category,
            flavour,
             ratings:0,
           }
-        
+      console.log(item)
           await updateDocument(document.id,item)
           console.log(response);
+
           if (!response.error) {
+            console.log("hijhjkhhjoh")
            setName('')
            setPrice('')
             setDesc('')
@@ -68,7 +70,7 @@ const EditItem = ({Edit,document}) => {
           setCategory("")
          setImg('')
          Edit(false)
-         navigate('/AdminItems')
+         navigate('/products')
           }
        
         

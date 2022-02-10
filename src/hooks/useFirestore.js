@@ -76,6 +76,7 @@ export const useFirestore = (collection) => {
 
   // update a document
   const updateDocument = async (id, updates) => {
+    console.log(updates)
     dispatch({ type: "IS_PENDING" })
 
     try {
