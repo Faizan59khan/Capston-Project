@@ -4,7 +4,9 @@ import  UsersTable  from './components/UsersTable/UsersTable';
 import {useCollection} from '../../hooks/useCollection'
 import { useAuthContext } from '../../hooks/useAuthContext';
 import { useNavigate } from 'react-router-dom';
+import Loading from '../../components/Loading'
 import mockData from './data';
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -42,6 +44,7 @@ const {documents}=useCollection('users')
   return (
     <div className={classes.root}>
       <div className={classes.content}>
+        {!documents && <Loading/>}
        {documents && <UsersTable users={documents} />}
       </div>
     </div>

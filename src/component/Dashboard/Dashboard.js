@@ -9,6 +9,7 @@ import UsersByDevice from './components/UsersByDevice/UsersByDevice'
 import LatestOrders from './components/LatestOrders/LatestOrders'
 import {useCollection} from '../../hooks/useCollection'
 import { useNavigate } from 'react-router-dom';
+import Loading from '../../components/Loading'
 import { useAuthContext } from '../../hooks/useAuthContext';
 const useStyles = makeStyles(theme => ({
   root: {
@@ -48,6 +49,7 @@ const Dashboard = () => {
 
   return (
     <div className={classes.root}>
+        {!orders && !userr && <Loading/>}
       <Grid
         container
         spacing={4}
@@ -79,6 +81,7 @@ const Dashboard = () => {
           xs={12}
         >
          {orders && <TasksProgress orders={orders}/>}
+     
         </Grid>
         <Grid
           item
@@ -88,6 +91,7 @@ const Dashboard = () => {
           xs={12}
         >
         {order &&  <LatestSales documents ={order}/>}
+    
         </Grid>
         <Grid
           item
@@ -97,6 +101,7 @@ const Dashboard = () => {
           xs={12}
         >
        {order &&   <UsersByDevice documents={order}/>}
+  
         </Grid>
         <Grid
           item
@@ -106,6 +111,7 @@ const Dashboard = () => {
           xs={12}
         >
          {order && <LatestOrders order={order}/>}
+
         </Grid>
       </Grid>
     </div>
