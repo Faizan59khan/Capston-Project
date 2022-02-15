@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import './Home.scss'
-import { useLogout } from '../../hooks/useLogout';
 import Products from '../Products/Products';
 import Cover from '../../components/Cover';
 import Filter from '../../components/Filter';
@@ -15,11 +13,13 @@ const Home = () => {
   const { user } = useAuthContext();
 
 
-  if (user) {
-    if (user.email === "sudofyproject@gmail.com") {
-      navigate('/dashboard')
+  useEffect(()=>{
+    if (user) {
+      if (user.email === "sudofyproject@gmail.com") {
+        navigate('/dashboard')
+      }
     }
-  }
+  },[])
 
 
 

@@ -4,7 +4,6 @@ import moment from 'moment';
 import PerfectScrollbar from 'react-perfect-scrollbar';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
-import { useEffect } from 'react/cjs/react.development';
 import { useAuthContext } from '../../../../hooks/useAuthContext';
 import { useCollection } from '../../../../hooks/useCollection';
 import { useFirestore } from '../../../../hooks/useFirestore';

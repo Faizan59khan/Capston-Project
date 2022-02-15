@@ -1,10 +1,10 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import cover from '../images/cover2.jpg'
 import biryani from '../images/br1.png'
 import burger from '../images/b2.png'
 import pizza from '../images/p1.png'
 import './Cover.scss'
-import { useEffect, useState } from 'react/cjs/react.development';
+
 
 const Cover = () => {
 

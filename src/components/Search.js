@@ -58,7 +58,7 @@ function Search() {
   const handleSearch = () => {
     setSavedNotes([...savedNotes, note])
     setValue(note)
-
+  
     if (note.includes("biryani") || note.includes("burger") || note.includes("pizza")
       || note.includes("pulao")) {
       //console.log("yes")                                                      //if the speech value contains these inputs
@@ -80,6 +80,7 @@ function Search() {
 
   const handleValue = () => {                                               //through text search
     console.log(value);
+   // value=value.toLowerCase();
     if (value.includes("biryani") || value.includes("burger") || value.includes("pizza")
       || value.includes("pulao")) {
       dispatch({ type: 'Filter', payload: null })
